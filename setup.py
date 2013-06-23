@@ -5,7 +5,7 @@ from setuptools import setup
 
 setup(
     name='mdx_lead_trail',
-    version='0.1',
+    version='0.2',
     author='Hendra',
     author_email='hendra2392@gmail.com',
     description='Python-Markdown extension to add special class name to first and last element of the document',
