@@ -73,12 +73,15 @@ class LeadTrailTreeprocessor(Treeprocessor):
 
 
 class LeadTrailExtension(markdown.Extension):
-    def __init__(self, configs={}):
+    def __init__(self, configs=None):
         self.config = {
             'leader_class': ['leader', 'Class name for the first element'],
             'trailer_class': ['trailer', 'Class name for the last element']
         }
-        configs = dict(configs) or {}
+        if configs is not None:
+            configs = dict(configs)
+        else:
+            configs = {}
         for key, value in configs.items():
             self.setConfig(key, value)
 
@@ -88,7 +91,7 @@ class LeadTrailExtension(markdown.Extension):
         md.treeprocessors.add('leadtrail', ext, '_end')
 
 
-def makeExtension(configs={}):
+def makeExtension(configs=None):
     return LeadTrailExtension(configs=configs)
 
 
